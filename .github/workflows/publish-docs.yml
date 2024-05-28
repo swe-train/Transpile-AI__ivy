@@ -36,6 +36,7 @@ jobs:
         with:
           fetch-depth: 0
           submodules: recursive
+          ref: transpileai
 
       - name: Checkout 🛎️ Doc-builder
         uses: actions/checkout@v4
