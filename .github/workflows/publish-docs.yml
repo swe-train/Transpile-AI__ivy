@@ -36,13 +36,13 @@ jobs:
         with:
           fetch-depth: 0
           submodules: recursive
-          ref: transpileai
 
       - name: Checkout 🛎️ Doc-builder
         uses: actions/checkout@v4
         with:
           repository: Transpile-AI/doc-builder
           path: .doc-builder
+          ref: transpileai
 
       - name: Install apt dependencies
         if: inputs.package-dependencies != ''
