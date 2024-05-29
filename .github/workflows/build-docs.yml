@@ -67,8 +67,6 @@ jobs:
           python versions/add_version.py ${{ inputs.repo-name }} ${{ github.ref_name }}
 
       - name: Commit and push
-        env:
-        GITHUB_TOKEN: ${{ secrets.DEV_BOT_PAT }}
         run: |
           git config --global user.email "hello@transpile-ai.com"
           git config --global user.name "ivy-dev-bot"
