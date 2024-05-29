@@ -38,6 +38,7 @@ jobs:
     name: Publish release docs
     needs: publish-dev-docs
     uses: ./.github/workflows/publish-docs.yml
+    if: always() && startsWith(github.ref, 'refs/tags')
     secrets: inherit
     with:
       version: ${{ github.ref_name }}
@@ -67,7 +68,7 @@ jobs:
 
       - name: Commit and push
         env:
-          GITHUB_TOKEN: ${{ secrets.DEV_BOT_PAT }}
+        GITHUB_TOKEN: ${{ secrets.DEV_BOT_PAT }}
         run: |
           git config --global user.email "hello@transpile-ai.com"
           git config --global user.name "ivy-dev-bot"
