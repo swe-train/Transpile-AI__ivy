@@ -88,7 +88,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4.6.1
         with:
           folder: docs/build
-          target-folder: "${{ inputs.version != 'dev' && format('{0}/', inputs.version) || '' }}"
+          target-folder: "${{ inputs.version != 'dev' && format('{0}', inputs.version) || '' }}${{ inputs.version == 'dev' && 'latest' || '' }}"
           ssh-key: ${{ secrets.DOCS_DEPLOY_KEY }}
           branch: main
           git-config-name: ivy-dev-bot
